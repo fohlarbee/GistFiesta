@@ -10,6 +10,6 @@ export interface BlogDetails {
     smallDescription: string;
     currentSlug: string;
     blogImage:string,
-    blockContent: any
+    blogContent: any
 
 }

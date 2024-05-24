@@ -9,6 +9,7 @@ export const Navbar = () => {
             <Link className="font-bold text-3xl" href='/'>Gist
                 <span className="text-primary">Fiesta</span>
             </Link>
+            {/* <span>Fohlarbee</span> */}
             <ModeToggle/>
 
         </nav>

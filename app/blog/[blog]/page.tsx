@@ -12,7 +12,7 @@ async function fetchData(slug: string){
        smallDescription,
        'currentSlug': slug.current,
        blogImage,
-       blockContent
+       blogContent
          
    } [0] `
 
@@ -27,6 +27,7 @@ export default async function BlogArticle({ params}:{ params: { blog: string } }
 
 
     const blog: BlogDetails = await fetchData(params.blog);
+    // console.log(blog)
     return (
         <div className="mt-4">
             <h1>
@@ -48,7 +49,7 @@ export default async function BlogArticle({ params}:{ params: { blog: string } }
 
             />
             <div className="prose prose-xl prose-orange prose-h3:text-8xl">
-                      <PortableText value={blog.blockContent} />
+                      <PortableText value={blog.blogContent} />
 
 
             </div>
