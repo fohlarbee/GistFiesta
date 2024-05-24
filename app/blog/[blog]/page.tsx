@@ -4,7 +4,7 @@ import { PortableText } from "next-sanity";
 import Image from "next/image";
 
 
-export const revalidate = 3600;
+export const revalidate = 30;
 async function fetchData(slug: string){
     // console.log('this is slug', slug)
     const query = `*[_type == 'blog' && slug.current == '${slug}']{
