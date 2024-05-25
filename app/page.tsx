@@ -11,7 +11,7 @@ export const revalidate = 30;
 
 
 async function fetchBlogs(){
-  const query = `*[_type == 'blog'] | order(_createdAt asc) {
+  const query = `*[_type == 'blog'] | order(_createdAt desc) {
     title,
     smallDescription,
     'currentSlug': slug.current,
