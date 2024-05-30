@@ -19,7 +19,7 @@ import { Button } from "@/components/ui/button";
                 {/* <div className=""></div> */}
                 <div className="justify-center flex flex-wrap ">
                       <ul className="justify-center flex">
-                        <div className=" flex-wrap w-[100%]  sm:block bg-red-400 flex max-w-[10px]">
+                        <div className=" flex-wrap w-[100%]  sm:block bg-red-400 sm:flex-col  md:flex">
                         <li>
                                 <a href="#"> <span className=" text-white">&#x2022;</span> 
                                 <span  className="text-primary transition hover:text-gray-700/75  px-3  w-[30%]">About</span> </a>
