@@ -5,6 +5,7 @@ import { ThemeProvider } from "./components/ThemeProvider";
 import { Navbar } from "./components/Navbar";
 
 import AppFooter from './components/Footer'
+import CustomNav from "./components/CustomNav";
 
 
 
@@ -39,12 +40,15 @@ export default function RootLayout({
           <Navbar/>
 
           <main className="max-w-2xl py-4 px-5  mx-auto ">
+          <CustomNav/>
+
           { children}
 
 
 
           </main>
           <AppFooter/>
+
 
 
 
