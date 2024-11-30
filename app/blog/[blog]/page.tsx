@@ -49,8 +49,10 @@ export default async function BlogArticle({ params}:{ params: { blog: string } }
             src={imageUrl(blog.blogImage).toString()}
 
             />
-            <div className="prose prose-xl prose-orange prose-h3:text-8xl dark:text-[#fff]   dark:prose-lead:text-white dark:prose-blockquote:text-primary dark:prose-strong:text-primary">
-                      <PortableText value={blog.blogContent} />
+            <div className="prose prose-xl prose-orange prose-h3:text-8xl dark:text-[#fff] dark:prose-lead:text-[#fff] dark:prose-blockquote:text-primary dark:prose-strong:text-[#fff]">
+                      <PortableText value={blog.blogContent}
+                      
+                       />
 
 
             </div>

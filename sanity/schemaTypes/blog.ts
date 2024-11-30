@@ -1,3 +1,5 @@
+import { copyPaste } from "@superside-oss/sanity-plugin-copy-paste";
+import { defineField } from "sanity";
 
 export default {
     name:'blog',
@@ -34,7 +36,8 @@ export default {
             type:'array',
             of:[
                 {
-                    type:'block'
+                    type:'block',
+                   
                 }
             ]
         }

@@ -30,9 +30,8 @@ export function NewsLetterDialog() {
 
 
   return (
+     <div className="border  opacity-50 mb-5 text-primary bg-primary mt-4  dark:text-primary">
     <Dialog  >
-      <div 
-      className="border  opacity-50 mb-5 text-primary bg-primary mt-4  dark:text-primary"></div>
       <div className="mt-1">
     <DialogTrigger asChild >
         <Button className="bg-[#eee] dark:bg-transparent dark:border  mb-3" variant="ghost">Join our Newsletter</Button>
@@ -70,5 +69,6 @@ export function NewsLetterDialog() {
       </div>
      
     </Dialog>
+    </div>
   )
 }
