@@ -6,7 +6,7 @@ import '../styles/footer.css'
 
  const AppFooter = () => {
     return (
-        <footer className="bg-red-500 py-12  ">
+        <footer id="about" className="bg-red-500 py-12  ">
                 <div className="">
                            <div className=" text-center">
                           <NewsLetterDialog/>

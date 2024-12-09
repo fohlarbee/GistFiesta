@@ -39,7 +39,7 @@ export default async function App  ()  {
     <>
     <div className="grid grid-cols-1 md:grid-cols-2 mt-5 gap-10 ">
       {blogs && blogs.map((blog: Blog, id: any) => (
-        <>
+        // <>
         <Card key={id} className=" border-4">
           <Image src={imageUrl(blog.blogImage).toString()} 
           alt="image" 
@@ -59,7 +59,7 @@ export default async function App  ()  {
         </Card>
 
         
-        </>
+        // </>
 
       ))}
 
