@@ -17,24 +17,55 @@ import { useState } from "react"
 
 
 export function NewsLetterDialog() {
+    const [name, setName] = useState<string>("");
+    const [email, setEmail] = useState<string>("");
+    const [isOpen, setIsOpen] = useState(true); 
+    const [isLoading, setIsLoading] = useState(false); 
+    const [emailSubmitted, setEmailSubmited] = useState(false); 
 
-    const [name, setName ] = useState<string>('');
-    const [email, setEmail ] = useState<string>('');
-    const [isOpen, setIsOpen] = useState(true); // Add a state to control the dialog's visibility
 
-    const handleSubmit = (event:any) => {
-      console.log('yes')
-      // Add your submission logic here
+
+
+    const handleSubmit = async(e:any) => {
+      setIsLoading(true);
+      e.preventDefault();
+      const data = {
+        name, email
+      }
+      console.log(data);
+      const JSONData = JSON.stringify(data);
+      const options = {
+        method: 'POST',
+        headers:{'Content-Type': 'application/json'},
+        body: JSONData
+      }
+      const endpoint = 'api/send';
+
+      const response = await fetch(endpoint, options);
+      if (response.status === 200){
+        setName("");
+        setEmail("");
+        setIsLoading(false);
+        const responseData = await response.json();
+        setEmailSubmited(true);
+        return responseData;
+      }else{
+        setName("");
+        setEmail("");
+        setIsLoading(false);
+        console.error("An error occured",response.status, await response.json());
+      }
+
     };
 
 
 
   return (
-     <div className="border  opacity-50 mb-5 text-primary bg-primary mt-4  dark:text-primary">
-    <Dialog  >
+     <div className="opacity-1 mb-1 text-primary mt-4  dark:text-primary">
+    <Dialog>
       <div className="mt-1">
     <DialogTrigger asChild >
-        <Button className="bg-[#eee] dark:bg-transparent dark:border  mb-3" variant="ghost">Join our Newsletter</Button>
+        <Button className="bg-[#eee] w-[100%] dark:border mb-3" variant="ghost">Join our Newsletter</Button>
       </DialogTrigger>
       <DialogContent className="sm:max-w-[425px]">
         <DialogHeader>
@@ -48,20 +79,37 @@ export function NewsLetterDialog() {
           <Label htmlFor="name" className="text-right text-lg dark:text-red-500">
             <span className="dark:text-primary"> Name</span> 
             </Label>
-            <Input id="name" className="col-span-3 mt-3 " placeholder="e.g Jon Doe" />
+            <Input value={name} 
+             onChange={(e) => setName(e.target.value)}
+            id="name" 
+            type="text" 
+            className="col-span-3 mt-3" 
+            placeholder="e.g Jon Doe" />
           </div>
           <div className="">
-            <Label htmlFor="username" className="text-right text-lg">
+            <Label htmlFor="email" className="text-right text-lg">
             <span className="dark:text-primary"> Email</span> 
             </Label>
-            <Input id="email" placeholder="e.g jondoe@gmail.com" className="col-span-3 mt-3" type="email" />
+            <Input value={email} 
+            onChange={(e) => setEmail(e.target.value)} 
+            id="email" 
+            type="email" 
+            placeholder="e.g jondoe@gmail.com" 
+            className="col-span-3 mt-3" />
           </div>
         </div>
         <DialogFooter>
           <DialogClose asChild>
-          <Button onClick={handleSubmit}  type="submit">Subscribe</Button>
-
-
+            <div>
+              <Button onClick={handleSubmit} type="submit">
+                {isLoading ? "Subscribing..." : "Subscribe"}
+              </Button>
+              {emailSubmitted && (
+                <p className="text-green-500 text-sm mt-4">
+                  Email submitted successfully
+                </p>
+              )}
+            </div>
           </DialogClose>
         </DialogFooter>
       </DialogContent>

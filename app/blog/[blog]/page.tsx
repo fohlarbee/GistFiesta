@@ -7,7 +7,6 @@ import Image from "next/image";
 export const revalidate = 30;
 
 async function fetchData(slug: string){
-    // console.log('this is slug', slug)
     const query = `*[_type == 'blog' && slug.current == '${slug}']{
         title,
        smallDescription,
@@ -18,7 +17,6 @@ async function fetchData(slug: string){
    } [0] `
 
       const data = await client.fetch(query);
-    //   console.log(data)
 
        return data;
     
@@ -28,7 +26,6 @@ export default async function BlogArticle({ params}:{ params: { blog: string } }
 
 
     const blog: BlogDetails = await fetchData(params.blog);
-    // console.log(blog)
     return (
         <div className="mt-4">
             <h1>
