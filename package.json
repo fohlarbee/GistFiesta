@@ -7,7 +7,7 @@
     "build": "next build",
     "start": "dotenv -e .env.local -- next start",
     "lint": "next lint",
-    "migrate": "prisma migrate deploy",
+    "migrate": "npx prisma migrate deploy",
     "generate": "dotenv -e .env.local -- npx prisma generate",
     "email": "email dev",
     "db:migrate":"dotenv -e .env.local -- npx prisma migrate deploy"
