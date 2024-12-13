@@ -8,6 +8,7 @@ import { metadata } from "./metadata";
 import AppFooter from './components/Footer'
 import CustomNav from "./components/CustomNav";
 import { useState } from "react";
+import { Toaster } from "@/components/ui/toaster";
 
 
 
@@ -39,6 +40,7 @@ export default function RootLayout({
           <CustomNav activeIndex={activeIndex} setActiveIndex={setActiveIndex}/>
           { children}
           <Analytics/>
+          <Toaster/>
           </main>
           <AppFooter/>
         </ThemeProvider>

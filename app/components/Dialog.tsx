@@ -13,6 +13,8 @@ import {
 import { Input } from "@/components/ui/input"
 import { Label } from "@/components/ui/label"
 import { useState } from "react"
+import { useToast } from "@/hooks/use-toast"
+
 
 
 
@@ -22,9 +24,7 @@ export function NewsLetterDialog() {
     const [isOpen, setIsOpen] = useState(true); 
     const [isLoading, setIsLoading] = useState(false); 
     const [emailSubmitted, setEmailSubmited] = useState(false); 
-
-
-
+    const {toast} = useToast();
 
     const handleSubmit = async(e:any) => {
       setIsLoading(true);
@@ -32,7 +32,6 @@ export function NewsLetterDialog() {
       const data = {
         name, email
       }
-      console.log(data);
       const JSONData = JSON.stringify(data);
       const options = {
         method: 'POST',
@@ -48,11 +47,21 @@ export function NewsLetterDialog() {
         setIsLoading(false);
         const responseData = await response.json();
         setEmailSubmited(true);
+        toast({
+          title:'Success',
+          description:"Subscription successfull",
+
+        })
         return responseData;
       }else{
         setName("");
         setEmail("");
         setIsLoading(false);
+        toast({
+          title:'Error',
+          description:"An error occured",
+          variant:"destructive"
+        })
         console.error("An error occured",response.status, await response.json());
       }
 
