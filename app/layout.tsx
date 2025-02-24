@@ -35,14 +35,14 @@ export default function RootLayout({
          enableSystem
          disableTransitionOnChange
         >
+          <main className="max-w-2xl py-4 px-5 mx-auto h-full mb-56">
           <Navbar/>
-          <main className="max-w-2xl py-4 px-5  mx-auto ">
           <CustomNav activeIndex={activeIndex} setActiveIndex={setActiveIndex}/>
           { children}
           <Analytics/>
           <Toaster/>
-          </main>
           <AppFooter/>
+          </main>
         </ThemeProvider>
       </body>
     </html>

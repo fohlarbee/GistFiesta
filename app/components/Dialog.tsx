@@ -70,7 +70,7 @@ export function NewsLetterDialog() {
 
 
   return (
-     <div className="opacity-1 mb-1 text-primary mt-4  dark:text-primary">
+     <div className="opacity-1 mb-1 text-primary mt-4  dark:text-primary mr-2">
     <Dialog>
       <div className="mt-1">
     <DialogTrigger asChild >

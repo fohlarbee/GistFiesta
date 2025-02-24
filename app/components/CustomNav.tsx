@@ -8,21 +8,21 @@ const tabLinks = [
     },
     {
         name: 'News',
-        href: '#news'
+        href: '/'
     },
     {
         name: 'Contact',
-        href: '#about'
+        href: '/'
     },
     {
         name: 'About',
-        href: '#about'
+        href: '/'
     }
 ]
 
 const CustomNav = ({activeIndex, setActiveIndex}: {activeIndex: number | null, setActiveIndex: (index: number) => void}) => {
     return (
-        <div className="topnav bg-[#333] overflow-hidden">
+        <div className="bg-[#333] overflow-hidden rounded-md flex flex-wrap text-center mt-3" >
             {tabLinks.map((link, index) => (
                 <Link 
                     key={index} 
