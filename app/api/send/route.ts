@@ -28,6 +28,7 @@ export async function POST(req: any, res: any) {
       subject: "Subcription Confirmation",
       react: EmailTemplate({name}),
     });
+    await prisma.$disconnect();
     return Response.json(data);
   } catch (error) {
     console.log(error);

@@ -71,7 +71,7 @@ const EmailTemplate = ({ name }: Props) => (
         This email was sent as a confrimation mail:{" "}
         <a
           className='text-orange-600 no-underline'
-          href="https://gist-fiesta.vercel.app"
+          href={process.env.SERVER_URL}
           style={{ color: "#0073e6", textDecoration: "none" }}
         >
           GistFiesta

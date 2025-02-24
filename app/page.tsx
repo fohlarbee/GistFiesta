@@ -8,6 +8,7 @@ import Link from "next/link";
 
 import {PrismaClient} from '@prisma/client';
 
+
 const prisma = new PrismaClient();
 
 
@@ -27,28 +28,6 @@ async function fetchBlogs(){
   }`
 
   const data = await client.fetch(query);
-
-  // if(!isRecentBlogSent){
-  //   const endpoint = 'api/news';
-  //   console.log(endpoint);
-  //   const options = {
-  //     method: 'POST',
-  //     headers:{'Content-Type': 'application/json'},
-  //   }
-  //   const response = await fetch('http://localhost:3000/api/news', {
-  //     method: 'POST',
-  //     headers:{'Content-Type': 'application/json'},
-  //   });
-  //   // console.log('response', response);
-  //   console.log(response.status)
-    // const data = await response.json();
-    // console.log(data);
-
-    
-
-  // }
-
-
   return data;
 
 }
@@ -86,7 +65,9 @@ export default async function App  ()  {
         // </>
 
       ))}
+
     </div>
+
     </>
    
   )
